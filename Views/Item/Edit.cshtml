@@ -1,0 +1,47 @@
+﻿@model Items
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Item</h1>
+<form method="post">
+    <div class="border p-3 mt-3">
+        <div class="row pb-2">
+            <h2 class="text-primary"> Edit Item Here :</h2>
+        </div>
+
+
+        <div asp-validation-summary="All"></div>
+
+
+        <div class="mb-3">
+            <label asp-for="Name" class=" form-label"></label>
+            <input asp-for="Name" class=" form-control"></input>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Price" class=" form-label"></label>
+            <input asp-for="Price" class=" form-control"></input>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="CategoryId" class=" form-label">Category</label>
+            <select asp-for="CategoryId" class=" form-control" asp-items="@ViewBag.CategoryList"></select>
+
+        </div>
+
+
+        <button type="submit" class=" btn btn-outline-primary"> Save </button>
+        <a asp-controller="Item" asp-action="Index" class=" btn btn-secondary"> Return to items </a> <!--gives you a link to the page the button will go to after clicking in it -->
+    </div>
+
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" /> <!--to put all the validations in the validationScriptsPartoal in one go -->
+}
+
+
